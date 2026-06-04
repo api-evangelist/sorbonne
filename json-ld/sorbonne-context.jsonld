@@ -1,0 +1,105 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "su": "https://www.sorbonne-universite.fr/vocab#",
+    "@vocab": "https://www.sorbonne-universite.fr/vocab#",
+
+    "Institution": "schema:CollegeOrUniversity",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "logo": {
+      "@id": "schema:logo",
+      "@type": "@id"
+    },
+    "sameAs": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+    "address": "schema:address",
+    "foundingDate": {
+      "@id": "schema:foundingDate",
+      "@type": "schema:Date"
+    },
+
+    "Api": "su:Api",
+    "apis": {
+      "@id": "su:exposesApi",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "baseURL": {
+      "@id": "su:baseURL",
+      "@type": "@id"
+    },
+    "humanURL": {
+      "@id": "schema:documentation",
+      "@type": "@id"
+    },
+
+    "Dataset": "schema:Dataset",
+    "datasets": {
+      "@id": "schema:dataset",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "identifier": "schema:identifier",
+    "license": {
+      "@id": "schema:license",
+      "@type": "@id"
+    },
+    "distribution": "schema:DataDownload",
+    "contentUrl": {
+      "@id": "schema:contentUrl",
+      "@type": "@id"
+    },
+
+    "ScholarlyArticle": "schema:ScholarlyArticle",
+    "publications": {
+      "@id": "su:hasPublication",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "author": "schema:author",
+    "datePublished": {
+      "@id": "schema:datePublished",
+      "@type": "schema:Date"
+    },
+    "doi": "schema:identifier"
+  },
+
+  "@type": "Institution",
+  "name": "Sorbonne University",
+  "description": "A public research university in Paris, France, formed in 2018 from the merger of Paris-Sorbonne and Pierre et Marie Curie universities.",
+  "url": "https://www.sorbonne-universite.fr/en",
+  "logo": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+  "foundingDate": "2018",
+  "sameAs": [
+    "https://github.com/sorbonne-universite",
+    "https://www.linkedin.com/school/sorbonne-universite/"
+  ],
+  "apis": [
+    {
+      "@type": "Api",
+      "name": "HAL Sorbonne Université Open Archive (OAI-PMH)",
+      "humanURL": "https://hal.sorbonne-universite.fr/",
+      "baseURL": "https://api.archives-ouvertes.fr/oai/hal/"
+    },
+    {
+      "@type": "Api",
+      "name": "HAL Search API",
+      "humanURL": "https://api.archives-ouvertes.fr/docs/search",
+      "baseURL": "https://api.archives-ouvertes.fr/search/"
+    },
+    {
+      "@type": "Api",
+      "name": "Recherche Data Gouv Dataverse - Sorbonne Université Collection",
+      "humanURL": "https://entrepot.recherche.data.gouv.fr/dataverse/sorbonne-univ",
+      "baseURL": "https://entrepot.recherche.data.gouv.fr/api/"
+    }
+  ]
+}
