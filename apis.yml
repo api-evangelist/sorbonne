@@ -1,0 +1,101 @@
+---
+aid: sorbonne
+name: Sorbonne University
+description: >-
+  Sorbonne University (Sorbonne Université) is a public research university in
+  Paris, France, formed in 2018 from the merger of Paris-Sorbonne and Pierre et
+  Marie Curie universities. It serves roughly 53,000 students across faculties
+  of Arts & Humanities, Health Sciences, and Science & Engineering, and is
+  ranked #81 in the QS World University Rankings 2025. Sorbonne University does
+  not operate a centralized public developer portal; its programmatic surface is
+  delivered through open-science infrastructure: the HAL Sorbonne Université open
+  archive (harvestable via the standards-based OAI-PMH and HAL search APIs) and a
+  Sorbonne University collection on the national Recherche Data Gouv Dataverse,
+  which exposes a live Dataverse Native REST API. An official GitHub organization
+  exists but currently hosts no public repositories.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/sorbonne/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Open Science
+  - Research Data
+  - Open Access
+  - OAI-PMH
+  - Dataverse
+  - France
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: sorbonne:hal-oai
+    name: HAL Sorbonne Université Open Archive (OAI-PMH)
+    description: >-
+      HAL Sorbonne Université is the institution's open archive of scholarly
+      publications. Its metadata is harvestable through the standards-based
+      OAI-PMH protocol served by the central HAL infrastructure
+      (api.archives-ouvertes.fr/oai/hal), which returns a valid Identify
+      response and exposes records dating back to 2002 under a CC0 metadata
+      license. The institutional portal at hal.sorbonne-universite.fr is the
+      public web front end.
+    humanURL: https://hal.sorbonne-universite.fr/
+    baseURL: https://api.archives-ouvertes.fr/oai/hal/
+    tags: [ Open Access, Open Science, OAI-PMH, Repository, Publications, Metadata ]
+    properties:
+      - type: Documentation
+        url: https://api.archives-ouvertes.fr/docs/oai
+      - type: Website
+        url: https://hal.sorbonne-universite.fr/
+  - aid: sorbonne:hal-search
+    name: HAL Search API
+    description: >-
+      The HAL Solr-based search API exposes structured queries over the HAL
+      corpus, including publications affiliated with Sorbonne Université. It
+      returns JSON/XML and supports faceting and filtering on collections,
+      authors, and document types.
+    humanURL: https://api.archives-ouvertes.fr/docs/search
+    baseURL: https://api.archives-ouvertes.fr/search/
+    tags: [ Search, Open Access, Publications, Metadata ]
+    properties:
+      - type: Documentation
+        url: https://api.archives-ouvertes.fr/docs/search
+  - aid: sorbonne:dataverse
+    name: Recherche Data Gouv Dataverse - Sorbonne Université Collection
+    description: >-
+      Sorbonne Université maintains a research-data collection on the French
+      national Recherche Data Gouv repository, built on Dataverse 6.0. The
+      Dataverse Native REST API is live (the version endpoint returns
+      {"status":"OK","data":{"version":"6.0"}}) and supports programmatic
+      dataset discovery, metadata retrieval, and file access. The Sorbonne
+      collection holds dozens of datasets across earth science, physics,
+      chemistry, and medicine.
+    humanURL: https://entrepot.recherche.data.gouv.fr/dataverse/sorbonne-univ
+    baseURL: https://entrepot.recherche.data.gouv.fr/api/
+    tags: [ Research Data, Dataverse, Open Data, Open Science, REST ]
+    properties:
+      - type: Documentation
+        url: https://guides.dataverse.org/en/latest/api/native-api.html
+      - type: Website
+        url: https://entrepot.recherche.data.gouv.fr/dataverse/sorbonne-univ
+common:
+  - type: Website
+    url: https://www.sorbonne-universite.fr/en
+  - type: GitHub
+    url: https://github.com/sorbonne-universite
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/sorbonne-universite/
+  - type: Plans
+    url: plans/sorbonne-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/sorbonne-rate-limits.yml
+  - type: FinOps
+    url: finops/sorbonne-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

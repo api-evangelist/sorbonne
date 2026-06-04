@@ -1,0 +1,45 @@
+---
+name: Sorbonne University
+description: Sorbonne University public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/sorbonne/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      Sorbonne University has no centralized public developer portal. Its
+      programmatic footprint is open-science infrastructure. Verified live: the
+      central HAL OAI-PMH endpoint returns a valid Identify response and the
+      Recherche Data Gouv Dataverse Native API version endpoint returns
+      {"status":"OK","data":{"version":"6.0"}}. The institutional HAL portal
+      (hal.sorbonne-universite.fr) front end is behind Anubis bot protection but
+      its data is harvestable through the central HAL API. The official GitHub
+      org (sorbonne-universite) exists and is legitimate but hosts zero public
+      repositories. No endpoints were fabricated; all APIs cataloged are
+      standards-based (OAI-PMH, HAL search, Dataverse) confirmed reachable.
+    endpoints:
+      - url: https://api.archives-ouvertes.fr/oai/hal/?verb=Identify
+        status: 200
+        note: HAL central OAI-PMH Identify response confirmed (records since 2002, CC0 metadata).
+      - url: https://api.archives-ouvertes.fr/search/
+        status: 200
+        note: HAL Solr search API base; documented and reachable.
+      - url: https://entrepot.recherche.data.gouv.fr/api/info/version
+        status: 200
+        note: Dataverse Native API live, version 6.0 (status OK).
+      - url: https://entrepot.recherche.data.gouv.fr/dataverse/sorbonne-univ
+        status: 200
+        note: Sorbonne Université research-data collection (dozens of datasets).
+      - url: https://hal.sorbonne-universite.fr/
+        status: 403
+        note: Institutional HAL portal front end blocked by Anubis bot protection; data via central HAL API.
+      - url: https://github.com/sorbonne-universite
+        status: 200
+        note: Official GitHub org, legitimate, but no public repositories.
+      - url: https://www.sorbonne-universite.fr/en
+        status: 200
+        note: Official institutional website (English).
+      - url: https://www.linkedin.com/school/sorbonne-universite/
+        status: 200
+        note: Official LinkedIn school page.
