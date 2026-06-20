@@ -76,7 +76,7 @@
   "name": "Sorbonne University",
   "description": "A public research university in Paris, France, formed in 2018 from the merger of Paris-Sorbonne and Pierre et Marie Curie universities.",
   "url": "https://www.sorbonne-universite.fr/en",
-  "logo": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+  "logo": "https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg",
   "foundingDate": "2018",
   "sameAs": [
     "https://github.com/sorbonne-universite",
