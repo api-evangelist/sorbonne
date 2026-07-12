@@ -82,6 +82,8 @@ apis:
       - type: Website
         url: https://entrepot.recherche.data.gouv.fr/dataverse/sorbonne-univ
 common:
+  - type: DomainSecurity
+    url: security/sorbonne-domain-security.yml
   - type: Website
     url: https://www.sorbonne-universite.fr/en
   - type: GitHub
