@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    entityID="https://auth.id.sorbonne-universite.fr/saml/metadata">
+
+  
+  <IDPSSODescriptor
+      WantAuthnRequestsSigned="true"
+      protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+	<ds:X509Certificate>
+	MIIDSTCCAjECFHSX8xoe5iqaFUkpFBTUCkhNgLs7MA0GCSqGSIb3DQEBCwUAMGEx
+CzAJBgNVBAYTAkZSMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRl
+cm5ldCBXaWRnaXRzIFB0eSBMdGQxGjAYBgNVBAMMEXNvcmJvbm5lLnNhbWwuY29t
+MB4XDTIwMDkxNjA4MDMxOVoXDTMxMTIwNDA4MDMxOVowYTELMAkGA1UEBhMCRlIx
+EzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMg
+UHR5IEx0ZDEaMBgGA1UEAwwRc29yYm9ubmUuc2FtbC5jb20wggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQC6HP4r28+XOleFP0vQ3Yij6eadBQvdAemW5xgs
+uFOMJj9ry7x/2sRNxxiqWf+n/J2RX0KBQA/WRM9RqVO5QL5frFIc2gz1THi0idaZ
+io72Aq1ejt1OPE8T/LaJ+53TFZBZv6s3AOYqNvXrQw3xcI++47HETHV4hBqidwQj
+A8YF1s6VLS7R2lNL/i8NOw4/6mhx7WHFPhVawwBIGr1kQ5jc+W2cmmHjb+2pSsPC
+ILO7R+XMb/3M5zGDDWku7hw420dTlY5ppGido8e/drt9vegCL3M8DVAkGdR3nj/s
+iEW3Fj+awPdRdKUOkef3FZ3cQAGMJaQTctbanJIaCuhTKKc/AgMBAAEwDQYJKoZI
+hvcNAQELBQADggEBAGMcdECwYc6/r9pBerY4AURPH1llo+BQuchXcUxlm+UAauI2
+07CKTArKFMz2rtIW+6HSoaF6bse1uNN7VmifFGMA/zqRC/Drdnm6NETbiOBJkcmF
+wIiEfIi4+NNoBYYetwArXCuNQ8xdiqDpiPhRR+aMVVSbvmwY1shCYoMEK4PW8qzZ
++mA2Nq4rOkdIJiJf1FygYp6/Rnl6f5Ub58swR1ct/giLy+6ELzxEOAl/rrxoBFfQ
+6l0K7LMy1Yh+yJS+vio+F86WFszP3eIZD4BZGweyDobrZvEJIx0m21FlsHpKZOQs
+BvbJsmiM90iJmQX8UOrbxE81SBO7YBflfe3j5JQ=
+</ds:X509Certificate>
+</ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <KeyDescriptor use="encryption">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyValue>
+	<RSAKeyValue xmlns="http://www.w3.org/2000/09/xmldsig#">
+		<Modulus>y1i0AwIq04s4myeb+bMUwBDGT2/M6T7z5xzVTYfGnzhj2//ScQSnwgbZdOKIrDwVtrUl/fbxEVo/
+Ky8j3V4D8orSfdyDvaedG6aO3OO7IAfyyxqZ1sD86tt3dcSDjNMUzhtu7jCOt+L63Sf6kPloslmY
+nWHKWITl+ZNbxiWP2viRQszFw1g/+hq5mWXqN+duZng2dVoEb2xD563BWd/9IyJxS+w8866QlLl+
+bMlqZzhUjcMG8ssz5SUFuAhuNSQMbJfEQQTWTNsPJAbozggG98bRvaWv1x0BMRGUvoCc0WSn3Sa4
+lcW2f7hthVaVc0G+HZ8H/lXEnnd1qeXUoVqqXw==
+</Modulus>
+		<Exponent>AQAB
+</Exponent>
+	</RSAKeyValue>
+</ds:KeyValue>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <ArtifactResolutionService
+      isDefault="true"
+      index="0"
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"
+      Location="https://auth.id.sorbonne-universite.fr/saml/artifact" />
+    
+    <SingleLogoutService
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"
+      Location="https://auth.id.sorbonne-universite.fr/saml/singleLogoutSOAP" />
+    
+    
+    <SingleLogoutService
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+      Location="https://auth.id.sorbonne-universite.fr/saml/singleLogout"
+      ResponseLocation="https://auth.id.sorbonne-universite.fr/saml/singleLogoutReturn" />
+    
+    
+    <SingleLogoutService
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+      Location="https://auth.id.sorbonne-universite.fr/saml/singleLogout"
+      ResponseLocation="https://auth.id.sorbonne-universite.fr/saml/singleLogoutReturn" />
+    
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:entity</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <SingleSignOnService
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+      Location="https://auth.id.sorbonne-universite.fr/saml/singleSignOn"
+      />
+    <SingleSignOnService
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+      Location="https://auth.id.sorbonne-universite.fr/saml/singleSignOn"
+      />
+    <SingleSignOnService
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"
+      Location="https://auth.id.sorbonne-universite.fr/saml/singleSignOnArtifact"
+      />
+  </IDPSSODescriptor>
+  
+
+  
+  <SPSSODescriptor
+      AuthnRequestsSigned="false"
+      WantAssertionsSigned="false"
+      protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+	<ds:X509Certificate>
+	MIIDSTCCAjECFHSX8xoe5iqaFUkpFBTUCkhNgLs7MA0GCSqGSIb3DQEBCwUAMGEx
+CzAJBgNVBAYTAkZSMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRl
+cm5ldCBXaWRnaXRzIFB0eSBMdGQxGjAYBgNVBAMMEXNvcmJvbm5lLnNhbWwuY29t
+MB4XDTIwMDkxNjA4MDMxOVoXDTMxMTIwNDA4MDMxOVowYTELMAkGA1UEBhMCRlIx
+EzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMg
+UHR5IEx0ZDEaMBgGA1UEAwwRc29yYm9ubmUuc2FtbC5jb20wggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQC6HP4r28+XOleFP0vQ3Yij6eadBQvdAemW5xgs
+uFOMJj9ry7x/2sRNxxiqWf+n/J2RX0KBQA/WRM9RqVO5QL5frFIc2gz1THi0idaZ
+io72Aq1ejt1OPE8T/LaJ+53TFZBZv6s3AOYqNvXrQw3xcI++47HETHV4hBqidwQj
+A8YF1s6VLS7R2lNL/i8NOw4/6mhx7WHFPhVawwBIGr1kQ5jc+W2cmmHjb+2pSsPC
+ILO7R+XMb/3M5zGDDWku7hw420dTlY5ppGido8e/drt9vegCL3M8DVAkGdR3nj/s
+iEW3Fj+awPdRdKUOkef3FZ3cQAGMJaQTctbanJIaCuhTKKc/AgMBAAEwDQYJKoZI
+hvcNAQELBQADggEBAGMcdECwYc6/r9pBerY4AURPH1llo+BQuchXcUxlm+UAauI2
+07CKTArKFMz2rtIW+6HSoaF6bse1uNN7VmifFGMA/zqRC/Drdnm6NETbiOBJkcmF
+wIiEfIi4+NNoBYYetwArXCuNQ8xdiqDpiPhRR+aMVVSbvmwY1shCYoMEK4PW8qzZ
++mA2Nq4rOkdIJiJf1FygYp6/Rnl6f5Ub58swR1ct/giLy+6ELzxEOAl/rrxoBFfQ
+6l0K7LMy1Yh+yJS+vio+F86WFszP3eIZD4BZGweyDobrZvEJIx0m21FlsHpKZOQs
+BvbJsmiM90iJmQX8UOrbxE81SBO7YBflfe3j5JQ=
+</ds:X509Certificate>
+</ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <KeyDescriptor use="encryption">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyValue>
+	<RSAKeyValue xmlns="http://www.w3.org/2000/09/xmldsig#">
+		<Modulus>y1i0AwIq04s4myeb+bMUwBDGT2/M6T7z5xzVTYfGnzhj2//ScQSnwgbZdOKIrDwVtrUl/fbxEVo/
+Ky8j3V4D8orSfdyDvaedG6aO3OO7IAfyyxqZ1sD86tt3dcSDjNMUzhtu7jCOt+L63Sf6kPloslmY
+nWHKWITl+ZNbxiWP2viRQszFw1g/+hq5mWXqN+duZng2dVoEb2xD563BWd/9IyJxS+w8866QlLl+
+bMlqZzhUjcMG8ssz5SUFuAhuNSQMbJfEQQTWTNsPJAbozggG98bRvaWv1x0BMRGUvoCc0WSn3Sa4
+lcW2f7hthVaVc0G+HZ8H/lXEnnd1qeXUoVqqXw==
+</Modulus>
+		<Exponent>AQAB
+</Exponent>
+	</RSAKeyValue>
+</ds:KeyValue>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <ArtifactResolutionService
+      isDefault="true"
+      index="0"
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"
+      Location="https://auth.id.sorbonne-universite.fr/saml/artifact" />
+    
+    <SingleLogoutService
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"
+      Location="https://auth.id.sorbonne-universite.fr/saml/proxySingleLogoutSOAP" />
+    
+    
+    <SingleLogoutService
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+      Location="https://auth.id.sorbonne-universite.fr/saml/proxySingleLogout"
+      ResponseLocation="https://auth.id.sorbonne-universite.fr/saml/proxySingleLogoutReturn" />
+    
+    
+    <SingleLogoutService
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+      Location="https://auth.id.sorbonne-universite.fr/saml/proxySingleLogout"
+      ResponseLocation="https://auth.id.sorbonne-universite.fr/saml/proxySingleLogoutReturn" />
+    
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:entity</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    
+    <AssertionConsumerService
+      isDefault="true"
+      index="0"
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"
+      Location="https://auth.id.sorbonne-universite.fr/saml/proxySingleSignOnArtifact" />
+    <AssertionConsumerService
+      isDefault="false"
+      index="1"
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+      Location="https://auth.id.sorbonne-universite.fr/saml/proxySingleSignOnPost" />
+    
+  </SPSSODescriptor>
+  
+
+  
+  <AttributeAuthorityDescriptor
+    protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+	<ds:X509Certificate>
+	MIIDSTCCAjECFHSX8xoe5iqaFUkpFBTUCkhNgLs7MA0GCSqGSIb3DQEBCwUAMGEx
+CzAJBgNVBAYTAkZSMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRl
+cm5ldCBXaWRnaXRzIFB0eSBMdGQxGjAYBgNVBAMMEXNvcmJvbm5lLnNhbWwuY29t
+MB4XDTIwMDkxNjA4MDMxOVoXDTMxMTIwNDA4MDMxOVowYTELMAkGA1UEBhMCRlIx
+EzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMg
+UHR5IEx0ZDEaMBgGA1UEAwwRc29yYm9ubmUuc2FtbC5jb20wggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQC6HP4r28+XOleFP0vQ3Yij6eadBQvdAemW5xgs
+uFOMJj9ry7x/2sRNxxiqWf+n/J2RX0KBQA/WRM9RqVO5QL5frFIc2gz1THi0idaZ
+io72Aq1ejt1OPE8T/LaJ+53TFZBZv6s3AOYqNvXrQw3xcI++47HETHV4hBqidwQj
+A8YF1s6VLS7R2lNL/i8NOw4/6mhx7WHFPhVawwBIGr1kQ5jc+W2cmmHjb+2pSsPC
+ILO7R+XMb/3M5zGDDWku7hw420dTlY5ppGido8e/drt9vegCL3M8DVAkGdR3nj/s
+iEW3Fj+awPdRdKUOkef3FZ3cQAGMJaQTctbanJIaCuhTKKc/AgMBAAEwDQYJKoZI
+hvcNAQELBQADggEBAGMcdECwYc6/r9pBerY4AURPH1llo+BQuchXcUxlm+UAauI2
+07CKTArKFMz2rtIW+6HSoaF6bse1uNN7VmifFGMA/zqRC/Drdnm6NETbiOBJkcmF
+wIiEfIi4+NNoBYYetwArXCuNQ8xdiqDpiPhRR+aMVVSbvmwY1shCYoMEK4PW8qzZ
++mA2Nq4rOkdIJiJf1FygYp6/Rnl6f5Ub58swR1ct/giLy+6ELzxEOAl/rrxoBFfQ
+6l0K7LMy1Yh+yJS+vio+F86WFszP3eIZD4BZGweyDobrZvEJIx0m21FlsHpKZOQs
+BvbJsmiM90iJmQX8UOrbxE81SBO7YBflfe3j5JQ=
+</ds:X509Certificate>
+</ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <KeyDescriptor use="encryption">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyValue>
+	<RSAKeyValue xmlns="http://www.w3.org/2000/09/xmldsig#">
+		<Modulus>y1i0AwIq04s4myeb+bMUwBDGT2/M6T7z5xzVTYfGnzhj2//ScQSnwgbZdOKIrDwVtrUl/fbxEVo/
+Ky8j3V4D8orSfdyDvaedG6aO3OO7IAfyyxqZ1sD86tt3dcSDjNMUzhtu7jCOt+L63Sf6kPloslmY
+nWHKWITl+ZNbxiWP2viRQszFw1g/+hq5mWXqN+duZng2dVoEb2xD563BWd/9IyJxS+w8866QlLl+
+bMlqZzhUjcMG8ssz5SUFuAhuNSQMbJfEQQTWTNsPJAbozggG98bRvaWv1x0BMRGUvoCc0WSn3Sa4
+lcW2f7hthVaVc0G+HZ8H/lXEnnd1qeXUoVqqXw==
+</Modulus>
+		<Exponent>AQAB
+</Exponent>
+	</RSAKeyValue>
+</ds:KeyValue>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <AttributeService
+      Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"
+      Location="https://auth.id.sorbonne-universite.fr/saml/AA/SOAP"/>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:entity</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+  </AttributeAuthorityDescriptor>
+  
+
+  <Organization>
+    <OrganizationName xml:lang="en">Sorbonne University</OrganizationName>
+    <OrganizationDisplayName xml:lang="en">Sorbonne University</OrganizationDisplayName>
+    <OrganizationURL xml:lang="en">https://www.sorbonne-universite.fr</OrganizationURL>
+  </Organization>
+</EntityDescriptor>
+

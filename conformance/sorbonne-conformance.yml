@@ -1,0 +1,239 @@
+specification: API Evangelist Domain Standard Conformance
+specificationVersion: '0.1'
+provider: Sorbonne University
+providerId: sorbonne
+regime: education
+generated: '2026-08-30'
+method: probed
+source: >-
+  The SAML 2.0 EntityDescriptor served at
+  https://auth.id.sorbonne-universite.fr/saml/metadata (HTTP 200, application/xml),
+  archived at identity-federation/sorbonne-idp-saml-metadata.xml; the RENATER production
+  metadata aggregates
+  https://metadata.federation.renater.fr/renater/main/main-idps-renater-metadata.xml and
+  .../main-all-renater-metadata.xml (both HTTP 200), parsed for every EntityDescriptor
+  under sorbonne-universite.fr; the OAI-PMH Identify response at
+  https://api.archives-ouvertes.fr/oai/sorbonne-universite/?verb=Identify (HTTP 200,
+  text/xml); the HAL Solr API scoped to the SORBONNE-UNIVERSITE collection at
+  https://api.archives-ouvertes.fr/search/SORBONNE-UNIVERSITE/ (HTTP 200,
+  application/json); the Dataverse Native API at
+  https://entrepot.recherche.data.gouv.fr/api/dataverses/sorbonne-univ and
+  .../contents (HTTP 200, application/json); and the DataCite REST API at
+  https://api.datacite.org/prefixes/10.57745 and /providers?query=sorbonne (HTTP 200).
+  DNS, RIPE and TLS lookups on every host were used to settle operator.
+description: >-
+  Conformance against the Kin Score `education` regulatory regime standards list
+  (scim, lti, oneroster, ed-fi, caliper, qti, oai-pmh, shibboleth, saml, orcid, datacite,
+  crossref). Reward-only: a standard is recorded as conformant for Sorbonne University
+  only where an INSTITUTION-OPERATED contract demonstrates it. Standards reached only
+  through a national or commercial platform on which the university holds an account are
+  listed separately as tenant-operated, because that conformance belongs to the
+  platform's engineering, not to Sorbonne's.
+
+  Operator was settled by IP ownership and certificate procurement, not by hostname.
+  For Sorbonne that check confirms rather than overturns the hostname reading: the
+  identity provider at auth.id.sorbonne-universite.fr resolves into FR-UPMC-NET, the
+  university's own RIPE allocation at 4 Place Jussieu, on a GEANT TCS certificate issued
+  to O=SORBONNE UNIVERSITE. It is the university running SAML on the university's own
+  hardware, and it is the only institution-operated conformance in this profile.
+
+  Note the standard NOT claimed. Sorbonne's SSO stack is LemonLDAP::NG for the identity
+  provider and SimpleSAMLphp for the service providers. That is SAML 2.0 conformance and
+  it is not Shibboleth conformance, so `shibboleth` is recorded as not-evidenced even
+  though it would have been the easy assumption from a federation entry. Reward-only
+  means an unclaimed slot stays unclaimed.
+
+conforms:
+- standard: saml
+  name: SAML 2.0
+  status: conformant
+  x-operator: institution
+  confidence: high
+  evidence:
+    url: https://auth.id.sorbonne-universite.fr/saml/metadata
+    status: 200
+    content_type: application/xml
+    entity: https://auth.id.sorbonne-universite.fr/saml/metadata
+    locations:
+    - 'EntityDescriptor[@entityID="https://auth.id.sorbonne-universite.fr/saml/metadata"]'
+    - 'EntityDescriptor/IDPSSODescriptor[@protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"]'
+    - 'IDPSSODescriptor/SingleSignOnService[@Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"]/@Location = https://auth.id.sorbonne-universite.fr/saml/singleSignOn'
+    - 'IDPSSODescriptor/SingleLogoutService[@Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"]/@Location = https://auth.id.sorbonne-universite.fr/saml/singleLogout'
+    - 'IDPSSODescriptor/KeyDescriptor[@use="signing"]/ds:KeyInfo/ds:X509Data'
+    - 'EntityDescriptor/Organization/OrganizationName = Sorbonne University'
+    federation:
+      name: Federation Education-Recherche (RENATER)
+      registration_authority: https://federation.renater.fr/
+      registered: '2021-10-07T16:52:37Z'
+      aggregate: https://metadata.federation.renater.fr/renater/main/main-idps-renater-metadata.xml
+      status: 200
+      entity_present: true
+      interfederation: eduGAIN
+      entity_categories:
+      - http://refeds.org/category/research-and-scholarship
+      assurance_certification:
+      - https://refeds.org/sirtfi
+    corroboration:
+      resolved_cname: llng.sorbonne-universite.fr
+      resolved_ip: 134.157.54.171
+      ip_owner: FR-UPMC-NET — 4 Place Jussieu, 75252 Paris CEDEX 05, France (RIPE inetnum 134.157.0.0 - 134.157.255.255)
+      origin_as: [AS1307, AS2200]
+      tls_subject: C=FR, L=Paris, O=SORBONNE UNIVERSITE, CN=auth.id.sorbonne-universite.fr
+      tls_issuer: C=GR, O=Hellenic Academic and Research Institutions CA, CN=GEANT TLS RSA 1
+      software: LemonLDAP::NG (CNAME target `llng`, Set-Cookie `lemonldapF5`)
+      note: >-
+        Institution address space, institution-procured OV certificate, self-hosted
+        open-source SSO software. No managed-IdP CNAME and no cloud provider anywhere in
+        the resolution chain, which is what separates this from the AAF Rapid IdP pattern
+        found across the Australian institutions in this cohort.
+  additional_entities:
+  - entityID: https://sp1.sorbonne-universite.fr/simplesaml/module.php/saml/sp/metadata.php/default-sp
+    role: SPSSODescriptor
+    resolved_ip: 134.157.23.152
+  - entityID: https://elearning2.4euplus.sorbonne-universite.fr/sorbonne_simplesaml
+    role: SPSSODescriptor
+    resolved_ip: 134.157.14.34
+  - entityID: https://portail-eduauth.sorbonne-universite.fr/federation
+    role: SPSSODescriptor
+    resolved_ip: 134.157.23.176
+  note: >-
+    Four RENATER-registered SAML 2.0 entities, all with Organization = Sorbonne
+    Universite and all resolving inside FR-UPMC-NET: one identity provider and three
+    service providers, two of them on the university's own *.prod.dsi.sorbonne-universite.fr
+    production estate. The IdP self-publishes its EntityDescriptor at a dereferenceable
+    entityID, which is stronger than the cohort norm of existing only inside a federation
+    aggregate.
+
+not_evidenced:
+- standard: shibboleth
+  status: not-evidenced
+  reason: >-
+    Sorbonne federates with SAML 2.0 but not with Shibboleth software. The identity
+    provider is LemonLDAP::NG (CNAME llng.sorbonne-universite.fr, Set-Cookie
+    lemonldapF5, metadata path /saml/metadata rather than /idp/shibboleth) and the three
+    registered service providers are SimpleSAMLphp (metadata paths
+    /simplesaml/module.php/saml/sp/metadata.php/... and /sorbonne_simplesaml). No
+    shibmd: extension, no Shibboleth handler path and no Shibboleth software fingerprint
+    was found on any Sorbonne-operated host. Not claimed.
+- standard: scim
+  status: not-evidenced
+  reason: No SCIM endpoint, schema or ServiceProviderConfig found on any Sorbonne-operated host.
+- standard: lti
+  status: not-evidenced
+  reason: >-
+    Sorbonne runs Moodle at moodlesu.sorbonne-universite.fr, which supports LTI as a
+    product capability, but no LTI tool configuration, registration endpoint or
+    platform-configuration document is publicly reachable, and the capability would be
+    Moodle's rather than the university's in any case. Not claimed.
+- standard: oneroster
+  status: not-evidenced
+  reason: No OneRoster endpoint or CSV bundle found; OneRoster adoption is K-12-centric and absent here.
+- standard: ed-fi
+  status: not-evidenced
+  reason: Ed-Fi is a US K-12 standard with no French higher-education deployment; nothing found.
+- standard: caliper
+  status: not-evidenced
+  reason: No Caliper Analytics event store or sensor endpoint found.
+- standard: qti
+  status: not-evidenced
+  reason: No QTI item bank or assessment package published publicly.
+- standard: crossref
+  status: not-evidenced
+  reason: >-
+    Sorbonne is not a Crossref member depositor in its own right; publications carry
+    publisher-minted Crossref DOIs, which is the publisher's conformance and not the
+    university's.
+
+tenant_operated:
+- standard: oai-pmh
+  name: OAI-PMH 2.0
+  status: conformant
+  x-operator: tenant
+  confidence: high
+  platform:
+    name: HAL
+    operator: CCSD — Centre pour la Communication Scientifique Directe (CNRS)
+    admin_email: contact@archives-ouvertes.fr
+  evidence:
+    url: https://api.archives-ouvertes.fr/oai/sorbonne-universite/?verb=Identify
+    status: 200
+    content_type: text/xml
+    locations:
+    - 'OAI-PMH/Identify/protocolVersion = 2.0'
+    - 'OAI-PMH/Identify/baseURL = http://api.archives-ouvertes.fr/oai/sorbonne-universite/'
+    - 'OAI-PMH/Identify/repositoryName = HAL'
+    - 'OAI-PMH/Identify/earliestDatestamp = 2002-09-23'
+    - 'OAI-PMH/Identify/deletedRecord = no'
+    - 'OAI-PMH/Identify/granularity = YYYY-MM-DD'
+    - 'OAI-PMH/Identify/description/oai-identifier/repositoryIdentifier = hal.archives-ouvertes.fr'
+  note: >-
+    The path segment `/oai/sorbonne-universite/` is Sorbonne's own harvest scope inside
+    HAL and the records are Sorbonne's deposits, but the endpoint, the software and the
+    admin contact are CCSD's. The OAI-PMH conformance belongs to HAL. Sorbonne's own
+    portal host, hal.sorbonne-universite.fr, serves an Anubis proof-of-work bot challenge
+    rather than an OAI endpoint.
+- standard: orcid
+  name: ORCID
+  status: conformant
+  x-operator: tenant
+  confidence: high
+  platform:
+    name: HAL
+    operator: CCSD (CNRS)
+  evidence:
+    url: https://api.archives-ouvertes.fr/search/SORBONNE-UNIVERSITE/?q=authIdHal_s:*&fq=authORCIDIdExt_s:*&rows=1&fl=docid,authORCIDIdExt_s
+    status: 200
+    content_type: application/json
+    locations:
+    - 'response.numFound = 211514 of 326851 records in the SORBONNE-UNIVERSITE collection carry authORCIDIdExt_s'
+    - 'response.docs[0].authORCIDIdExt_s = ["0000-0002-5598-3900"]'
+  note: >-
+    ORCID identifiers are resolvable for the majority of Sorbonne-affiliated records, but
+    the identifier plumbing, the field and the API are HAL's. Sorbonne is not itself an
+    ORCID member API consumer that we could evidence.
+- standard: datacite
+  name: DataCite
+  status: conformant
+  x-operator: tenant
+  confidence: high
+  platform:
+    name: Recherche Data Gouv
+    operator: INRAE, for the French Ministry of Higher Education and Research
+    datacite_provider_id: rdg
+    datacite_client_id: rdg.prod
+  evidence:
+  - url: https://entrepot.recherche.data.gouv.fr/api/dataverses/sorbonne-univ/contents
+    status: 200
+    content_type: application/json
+    locations:
+    - '21 items in the sorbonne-univ collection; datasets carry protocol=doi, authority=10.57745'
+  - url: https://api.datacite.org/prefixes/10.57745
+    status: 200
+    locations:
+    - 'relationships.providers.data[0].id = rdg'
+    - 'relationships.clients.data[0].id = rdg.prod'
+  - url: https://api.datacite.org/dois/10.57745/CBUPP3
+    status: 200
+    locations:
+    - 'data.attributes.publisher = Recherche Data Gouv'
+  - url: https://api.datacite.org/providers?query=sorbonne
+    status: 200
+    locations:
+    - 'meta.total = 0 — Sorbonne University holds no DataCite membership of its own'
+  note: >-
+    Sorbonne's research datasets get DataCite DOIs, and the minting account is Recherche
+    Data Gouv's, not Sorbonne's. Recorded as tenant so the conformance scores against the
+    platform that earned it.
+
+summary:
+  regime: education
+  standards_evaluated: 12
+  institution_conformant: 1
+  tenant_conformant: 3
+  not_evidenced: 8
+  institution_standards:
+  - saml
+  tenant_standards:
+  - oai-pmh
+  - orcid
+  - datacite
