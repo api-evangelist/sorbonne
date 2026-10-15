@@ -1,0 +1,61 @@
+edges:
+- partner_name: eduGAIN
+  partner: null
+  type: register
+  channel: standard-directory
+  relationship: network-participant
+  direction: partner-built
+  evidence: https://technical.edugain.org/api.php?action=list_entities&type=idp&format=json
+  category: research and education identity federation
+  contract_reference:
+    network: eduGAIN (GÉANT interfederation)
+    spec_file: null
+    roles:
+    - identity-provider
+    - service-provider
+    role: identity-and-service-provider
+    federations:
+    - FER
+    matched_by: domain:sorbonne-universite.fr
+    entities:
+    - entity_id: https://auth.id.sorbonne-universite.fr/saml/metadata
+      role: identity-provider
+      federation: FER
+      display_name: Sorbonne Université
+      entity_categories:
+      - '11'
+      - '76'
+      - '191'
+      sirtfi: true
+      coco: false
+    - entity_id: https://elearning2.4euplus.sorbonne-universite.fr/sorbonne_simplesaml
+      role: service-provider
+      federation: FER
+      display_name: Sorbonne Université
+      entity_categories:
+      - '5'
+      - '52'
+      - '57'
+      - '109'
+      - '191'
+      sirtfi: false
+      coco: true
+    - entity_id: https://sp1.sorbonne-universite.fr/simplesaml/module.php/saml/sp/metadata.php/default-sp
+      role: service-provider
+      federation: FER
+      display_name: Sorbonne Université
+      entity_categories:
+      - '5'
+      - '109'
+      - '191'
+      sirtfi: false
+      coco: true
+    detected_by: sweep-higher-ed.py
+    detected: '2026-10-15'
+  detected_by: sweep-higher-ed.py
+  first_seen: '2026-10-15'
+generated: '2026-10-15'
+method: searched
+checked:
+- https://technical.edugain.org/api.php?action=list_entities&type=idp&format=json
+- https://technical.edugain.org/api.php?action=list_entities&type=sp&format=json
